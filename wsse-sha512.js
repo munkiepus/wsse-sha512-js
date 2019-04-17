@@ -40,7 +40,7 @@ function wsse(Password) {
 
     r[0] = NonceEncoded;
     r[1] = Created;
-    r[2] = PasswordDigestEncoded;
+    r[2] = PasswordDigest;
     return r;
 }
 
