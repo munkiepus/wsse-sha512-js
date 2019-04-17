@@ -19,7 +19,7 @@ function encodePassword(stringInput, iterations = 5000){
       binaryString  = convertUint8ArrayToBinaryString(uint8array);
   }
 
-  return binaryString;
+  return btoa(binaryString);
 }
 
 
@@ -36,10 +36,7 @@ function wsse(Password) {
     Nonce = Created+'There is more than words'+Math.random();
     NonceEncoded = btoa(Nonce);
 
-    concatenated = Nonce + Created + Password;
-
-    PasswordDigest = encodePassword(concatenated);
-    PasswordDigestEncoded = btoa(PasswordDigest);
+    PasswordDigest = encodePassword(Nonce + Created + Password);
 
     r[0] = NonceEncoded;
     r[1] = Created;
